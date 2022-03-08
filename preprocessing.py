@@ -20,40 +20,6 @@ def normalize_data(X):
     
     return np.reshape(normalized_data, (num_trials, num_signals, num_bins))
 
-
-def augment_data(X_train, y_train, person_train, subsamples=5):
-    '''
-    Performs data augmentation to return data of a larger sample size
-    
-    Input: 
-    X_train: (# trials, # EEG signals, # time bins)
-    y_train: (# trials,)
-    person_train: (# trials, 1)
-    subsamples: Multiplication factor for output data size.
-    
-    Returns: Returns a larger sample size of X, y, and persons data.
-    Dimensions of return data depends on the number of subsamples specified.
-    '''    
-
-    num_trials = X_train.shape[0]
-    num_signals = X_train.shape[1]
-    num_bins = X_train.shape[2]
-    
-    augmented_num_trials = subsamples * num_trials
-
-    X_train_augmented = np.zeros((augmented_num_trials, num_signals, num_bins//subsamples))
-    y_train_augmented = np.zeros(augmented_num_trials,)
-    person_train_augmented = np.zeros((augmented_num_trials, 1))
-
-    for i in range(sample_every):
-        start = i * num_trials
-        end = start + num_trials
-        X_train_augmented[start:end] = X_train[:,:,i::subsamples]
-        y_train_augmented[start:end] = y_train[:,]
-        person_train_augmented[start:end] = person_train[:,:]
-
-    return X_train_augmented, y_train_augmented, person_train_augmented
-
 def smooth_data(X, num_points=5):
     '''
     Smooths data by using Hanning window. See reference below for choice of window.
