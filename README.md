@@ -1,4 +1,22 @@
-# EEG_action_classification
+# Classification of Electroencephalography (EEG) Signals using Neural Networks
 
-Download the project_data.zip file provided on Bruinlearn and keep all the .npy files under a 'data' folder.
-Run experiment.py for training the model.
+Course project for ECE 247. 
+
+Dataset: BCI 4 dataset comprising of 2115 trials corresponding to 22 EEG channels over 1000 time bins
+
+Preprocessing:
+- Trimming
+- Averaging
+- Max pooling
+- Noise addition (data augmentation)
+
+Train Test Split:
+- Random sampling
+- Stratification
+
+Models:
+- CNN
+- RNN/ GRU
+- LSTM
+- CNN + LSTM
+- CNN + RNN
