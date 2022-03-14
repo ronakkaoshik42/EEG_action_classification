@@ -20,3 +20,4 @@ Models:
 - LSTM
 - CNN + LSTM
 - CNN + RNN
+- VAE + Logistic Regression
