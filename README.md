@@ -9,10 +9,11 @@ Preprocessing:
 - Averaging
 - Max pooling
 - Noise addition (data augmentation)
+- LP Filter for smoothing EEG
 
 Train Test Split:
 - Random sampling
-- Stratification
+- Stratification (across class and labels)
 
 Models:
 - CNN
